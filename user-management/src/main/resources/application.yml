@@ -1,0 +1,10 @@
+#  mybatis整合
+mybatis:
+  # 别名
+  type-aliases-package: com.example.usermanagement.entity
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mappers/**/*.xml
+spring:
+  profiles:
+    active: dev

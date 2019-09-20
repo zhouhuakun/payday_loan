@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.usermanagement.mapper.UserlineMapper">
+  <resultMap id="BaseResultMap" type="com.example.usermanagement.entity.Userline">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="borrow_number" jdbcType="INTEGER" property="borrowNumber" />
+    <result column="credit_line" jdbcType="INTEGER" property="creditLine" />
+    <result column="use_line" jdbcType="INTEGER" property="useLine" />
+    <result column="residue_line" jdbcType="INTEGER" property="residueLine" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, username, phone, borrow_number, credit_line, use_line, residue_line
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from userline
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from userline
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.usermanagement.entity.Userline" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into userline (username, phone, borrow_number, 
+      credit_line, use_line, residue_line
+      )
+    values (#{username,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{borrowNumber,jdbcType=INTEGER}, 
+      #{creditLine,jdbcType=INTEGER}, #{useLine,jdbcType=INTEGER}, #{residueLine,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.usermanagement.entity.Userline" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into userline
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        username,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="borrowNumber != null">
+        borrow_number,
+      </if>
+      <if test="creditLine != null">
+        credit_line,
+      </if>
+      <if test="useLine != null">
+        use_line,
+      </if>
+      <if test="residueLine != null">
+        residue_line,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowNumber != null">
+        #{borrowNumber,jdbcType=INTEGER},
+      </if>
+      <if test="creditLine != null">
+        #{creditLine,jdbcType=INTEGER},
+      </if>
+      <if test="useLine != null">
+        #{useLine,jdbcType=INTEGER},
+      </if>
+      <if test="residueLine != null">
+        #{residueLine,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.usermanagement.entity.Userline">
+    <!--@mbg.generated-->
+    update userline
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowNumber != null">
+        borrow_number = #{borrowNumber,jdbcType=INTEGER},
+      </if>
+      <if test="creditLine != null">
+        credit_line = #{creditLine,jdbcType=INTEGER},
+      </if>
+      <if test="useLine != null">
+        use_line = #{useLine,jdbcType=INTEGER},
+      </if>
+      <if test="residueLine != null">
+        residue_line = #{residueLine,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.usermanagement.entity.Userline">
+    <!--@mbg.generated-->
+    update userline
+    set username = #{username,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      borrow_number = #{borrowNumber,jdbcType=INTEGER},
+      credit_line = #{creditLine,jdbcType=INTEGER},
+      use_line = #{useLine,jdbcType=INTEGER},
+      residue_line = #{residueLine,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>
